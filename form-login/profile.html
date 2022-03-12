@@ -14,7 +14,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="student.js"></script>
 </head>
 <nav class="navbar navbar-expand-lg " style="background-color: chartreuse">
     <a class="navbar-brand" href="/index.html">Home</a>
@@ -25,13 +24,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a id="register" class="nav-link" href="form-login/register.html">Register<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item active">
-                <a onclick="logOut()" class="nav-link">logout<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="form-login/register.html">Register<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a id="username1" class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Link</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -57,16 +53,45 @@
 <!--end narbar-->
 
 <body>
-<h1>Quản lý học viên</h1>
-<h3 style="float: right">Coach : HOÀNG MẠNH HÙNG</h3>
-<table border="1" width="100%" style="border-collapse: collapse" class="table">
-    <tr>
-        <th>STT</th>
-        <th>Name</th>
-        <th>Age</th>
-    </tr>
-    <tbody id="drawTable"></tbody>
-</table>
+<section class="vh-100" style="background-color: #9de2ff;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-md-9 col-lg-7 col-xl-5">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body p-4">
+                        <div class="d-flex text-black">
+                            <div class="flex-shrink-0">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="Generic placeholder image" class="img-fluid" style="width: 180px; border-radius: 10px;">
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h5 class="mb-1" id="name">profile</h5>
+                                <p class="mb-2 pb-1" style="color: #2b2a2a;">Senior Journalist</p>
+                                <div class="d-flex justify-content-start rounded-3 p-2 mb-2" style="background-color: #efefef;">
+                                    <div>
+                                        <p class="small text-muted mb-1">Articles</p>
+                                        <p class="mb-0">41</p>
+                                    </div>
+                                    <div class="px-3">
+                                        <p class="small text-muted mb-1">Followers</p>
+                                        <p class="mb-0">976</p>
+                                    </div>
+                                    <div>
+                                        <p class="small text-muted mb-1">Rating</p>
+                                        <p class="mb-0">8.5</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex pt-1">
+                                    <button type="button" class="btn btn-outline-primary me-1 flex-grow-1">Chat</button>
+                                    <button type="button" class="btn btn-primary flex-grow-1">Follow</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Footer -->
 <footer class="text-center text-lg-start" style="background-color: chartreuse">
@@ -195,37 +220,7 @@
 </footer>
 <!-- Footer -->
 </body>
-<script>
-    if(window.localStorage.getItem('user_key') != null){
-        document.getElementById('register').innerHTML = '';
-        document.getElementById('username1').innerHTML = window.localStorage.getItem('user_key');
-    }
-    let std1 = new Student(1, 'Hoàng lee tun nu', 3);
-    let std2 = new Student(2, 'Lê Thị Hiền', 28);
-    let std3 = new Student(3,'Hoàng lee Tun béo',4);
-    let std4 = new Student(4,'em bé',0);
-
-    let studentList = [];
-    studentList.push(std1);
-    studentList.push(std2);
-    studentList.push(std3);
-    studentList.push(std4)
-
-
-    function showlist() {
-        let drawTable = '';
-        for (let i = 0; i < studentList.length; i++) {
-            drawTable += '<tr><td>'+studentList[i].id+'</td>' +
-                '<td>'+studentList[i].name+'</td>' +
-                '<td>'+studentList[i].age+'</td></tr>'
-        }
-        document.getElementById('drawTable').innerHTML = drawTable;
-    }
-function logOut(){
-        window.localStorage.clear();
-        window.location.reload();
-}
-    showlist()
-
-</script>
 </html>
+<script>
+    document.getElementById('name').innerHTML = window.localStorage.getItem('user_key');
+</script>
